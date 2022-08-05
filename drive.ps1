@@ -38,7 +38,7 @@ else {
     Add-Content -Path $logFile -Value '[INFO] PoshGram module verified.'
 }
  
-#get hard drive volume information and free space
+# get hard drive volume information and free space
 try {
     if ($PSVersionTable.Platform -eq 'Unix') {
         $volume = Get-PSDrive -Name $Drive -ErrorAction Stop
@@ -75,7 +75,6 @@ catch {
  
 #evaluate if a message needs to be sent if the drive is below 20GB freespace
 if ($percentFree -le 20) {
- 
     try {
         Import-Module PoshGram -ErrorAction Stop
         Add-Content -Path $logFile -Value '[INFO] PoshGram imported successfully.'
